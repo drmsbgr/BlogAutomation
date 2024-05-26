@@ -22,10 +22,10 @@ class Ui_loginPanel(object):
     def setupUi(self, loginPanel):
         if not loginPanel.objectName():
             loginPanel.setObjectName(u"loginPanel")
-        loginPanel.resize(400, 350)
+        loginPanel.resize(400, 400)
         self.verticalLayoutWidget = QWidget(loginPanel)
         self.verticalLayoutWidget.setObjectName(u"verticalLayoutWidget")
-        self.verticalLayoutWidget.setGeometry(QRect(10, 10, 381, 331))
+        self.verticalLayoutWidget.setGeometry(QRect(10, 10, 381, 381))
         self.verticalLayout = QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout.setSpacing(15)
         self.verticalLayout.setObjectName(u"verticalLayout")
@@ -69,6 +69,12 @@ class Ui_loginPanel(object):
 
         self.verticalLayout.addWidget(self.registerButton)
 
+        self.quitButton = QPushButton(self.verticalLayoutWidget)
+        self.quitButton.setObjectName(u"quitButton")
+        self.quitButton.setMinimumSize(QSize(0, 40))
+
+        self.verticalLayout.addWidget(self.quitButton)
+
 
         self.retranslateUi(loginPanel)
 
@@ -85,5 +91,6 @@ class Ui_loginPanel(object):
         self.passwordInput.setPlaceholderText(QCoreApplication.translate("loginPanel", u"\u015eifrenizi giriniz...", None))
         self.loginButton.setText(QCoreApplication.translate("loginPanel", u"Giri\u015f Yap", None))
         self.registerButton.setText(QCoreApplication.translate("loginPanel", u"Hesab\u0131m Yok", None))
+        self.quitButton.setText(QCoreApplication.translate("loginPanel", u"\u00c7\u0131k", None))
     # retranslateUi
 

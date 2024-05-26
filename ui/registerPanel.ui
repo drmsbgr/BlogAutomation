@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>loginPanel</class>
- <widget class="QWidget" name="loginPanel">
+ <class>registerPanel</class>
+ <widget class="QWidget" name="registerPanel">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>400</height>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Giriş Yap</string>
+   <string>Kayıt Ol</string>
   </property>
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
@@ -19,15 +19,15 @@
      <x>10</x>
      <y>10</y>
      <width>381</width>
-     <height>381</height>
+     <height>581</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
+   <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0,0,0,0,0,0,0,0,0,0">
     <property name="spacing">
      <number>15</number>
     </property>
     <property name="sizeConstraint">
-     <enum>QLayout::SetMaximumSize</enum>
+     <enum>QLayout::SetMinAndMaxSize</enum>
     </property>
     <property name="leftMargin">
      <number>15</number>
@@ -100,15 +100,92 @@
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="loginButton">
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>E-Mail</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="mailInput">
       <property name="minimumSize">
        <size>
         <width>0</width>
         <height>40</height>
        </size>
       </property>
+      <property name="inputMask">
+       <string/>
+      </property>
       <property name="text">
-       <string>Giriş Yap</string>
+       <string/>
+      </property>
+      <property name="maxLength">
+       <number>32767</number>
+      </property>
+      <property name="echoMode">
+       <enum>QLineEdit::Normal</enum>
+      </property>
+      <property name="placeholderText">
+       <string>E-mailinizi giriniz...</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_5">
+      <property name="text">
+       <string>Cinsiyet</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QComboBox" name="genderComboBox">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>40</height>
+       </size>
+      </property>
+      <item>
+       <property name="text">
+        <string>Erkek</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Kadın</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Belirtmek İstemiyorum</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>Doğum Tarihi</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QDateEdit" name="birthDateInput">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>40</height>
+       </size>
       </property>
      </widget>
     </item>
@@ -121,12 +198,12 @@
        </size>
       </property>
       <property name="text">
-       <string>Hesabım Yok</string>
+       <string>Kayıt Ol</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="quitButton">
+     <widget class="QPushButton" name="backButton">
       <property name="minimumSize">
        <size>
         <width>0</width>
@@ -134,7 +211,7 @@
        </size>
       </property>
       <property name="text">
-       <string>Çık</string>
+       <string>Geri Dön</string>
       </property>
      </widget>
     </item>

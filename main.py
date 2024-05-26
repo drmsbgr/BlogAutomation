@@ -8,7 +8,6 @@ if __name__ == "__main__":
     dbhelper.initializeDB()
 
     app = QApplication(sys.argv)
-
     window = LoginPanel()
     window.show()
 
