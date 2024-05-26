@@ -135,10 +135,10 @@ class Ui_postViewPanel(object):
         self.horizontalLayout_2.setSpacing(15)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.horizontalLayout_2.setContentsMargins(15, 15, 15, 15)
-        self.plainTextEdit = QPlainTextEdit(self.verticalLayoutWidget_2)
-        self.plainTextEdit.setObjectName(u"plainTextEdit")
+        self.commentContentInput = QPlainTextEdit(self.verticalLayoutWidget_2)
+        self.commentContentInput.setObjectName(u"commentContentInput")
 
-        self.horizontalLayout_2.addWidget(self.plainTextEdit)
+        self.horizontalLayout_2.addWidget(self.commentContentInput)
 
         self.sendCommentButton = QPushButton(self.verticalLayoutWidget_2)
         self.sendCommentButton.setObjectName(u"sendCommentButton")

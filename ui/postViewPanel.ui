@@ -270,7 +270,7 @@
      <number>15</number>
     </property>
     <item>
-     <widget class="QPlainTextEdit" name="plainTextEdit"/>
+     <widget class="QPlainTextEdit" name="commentContentInput"/>
     </item>
     <item>
      <widget class="QPushButton" name="sendCommentButton">

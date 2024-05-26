@@ -23,6 +23,20 @@ class PostViewPanel(QMainWindow):
         self.ui.publisherLabel.setText(f"Paylaşan: {publisher.username}")
         self.ui.publishDateLabel.setText(f"Paylaşım Tarihi: {self.postData.date}")
 
+        self.refreshComments()
+
+        categories = dbhelper.getCategoriesByPostId(self.postData.id)
+        categoriesStr = ",".join(categories)
+        self.ui.categoriesLabel.setText(f"Kategoriler: {categoriesStr}")
+
+        self.ui.sendCommentButton.clicked.connect(self.sendComment)
+        self.ui.backButton.clicked.connect(self.back)
+
+    def refreshComments(self):
+
+        for i in reversed(range(self.ui.scrollAreaWidgetContents.layout().count())):
+            self.ui.scrollAreaWidgetContents.layout().itemAt(i).widget().setParent(None)
+
         comments = dbhelper.getCommentsByPostId(self.postData.id)
 
         for comment in comments:
@@ -54,11 +68,36 @@ class PostViewPanel(QMainWindow):
 
         self.ui.commentCountLabel.setText(f"Yorum Sayısı: {len(comments)}")
 
-        categories = dbhelper.getCategoriesByPostId(self.postData.id)
-        categoriesStr = ",".join(categories)
-        self.ui.categoriesLabel.setText(f"Kategoriler: {categoriesStr}")
+    def sendComment(self):
+        if self.ui.commentContentInput.toPlainText() == "":
+            QMessageBox.warning(
+                self, "Uyarı!", "Boş alan bırakılamaz.", QMessageBox.StandardButton.Ok
+            )
+            return
 
-        self.ui.backButton.clicked.connect(self.back)
+        try:
+            con = dbhelper.connectDB()
+            cur = con.cursor()
+            sql = """INSERT INTO comments VALUES (NULL,?,?,?,?)"""
+            date = QDateTime.currentDateTime()
+            dateStr = f"{date.date().day():02d}.{date.date().month():02d}.{date.date().year():02d} {date.time().hour():02d}:{date.time().minute():02d}:{date.time().second():02d}"
+            cur.execute(
+                sql,
+                (
+                    self.userData.id,
+                    self.postData.id,
+                    self.ui.commentContentInput.toPlainText(),
+                    dateStr,
+                ),
+            )
+            con.commit()
+            self.refreshComments()
+        except Exception as e:
+            raise e
+        finally:
+            con.close()
+
+        self.ui.commentContentInput.setPlainText("")
 
     def back(self):
         import view.homepagePanel as hp
