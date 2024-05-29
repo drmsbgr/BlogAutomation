@@ -257,7 +257,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="adminPanel">
+     <widget class="QPushButton" name="adminPanelBtn">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
         <horstretch>0</horstretch>
@@ -336,9 +336,9 @@
   <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
-     <x>290</x>
+     <x>10</x>
      <y>50</y>
-     <width>391</width>
+     <width>1001</width>
      <height>71</height>
     </rect>
    </property>
@@ -428,6 +428,38 @@
       </property>
       <property name="text">
        <string>Ara</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>450</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QPushButton" name="createPostBtn">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>150</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Gönderi Oluştur</string>
       </property>
      </widget>
     </item>

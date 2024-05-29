@@ -12,7 +12,7 @@ class HomepagePanel(QMainWindow):
         self.ui.setupUi(self)
         self.userData = userData
 
-        self.ui.adminPanel.setEnabled(self.userData.roleID == 1)
+        self.ui.adminPanelBtn.setEnabled(self.userData.roleID == 1)
 
         self.ui.welcomeLabel.setText(f"Hoşgeldiniz, {self.userData.username}")
 
@@ -21,6 +21,8 @@ class HomepagePanel(QMainWindow):
         self.ui.refreshButton.clicked.connect(lambda: self.refresh(""))
         self.ui.logoutButton.clicked.connect(self.logout)
         self.ui.profileButton.clicked.connect(self.openProfile)
+        self.ui.adminPanelBtn.clicked.connect(self.openAdminPanel)
+        self.ui.createPostBtn.clicked.connect(self.openCreatePostPanel)
 
         self.ui.postFrame.hide()
         self.refresh("")
@@ -104,6 +106,20 @@ class HomepagePanel(QMainWindow):
 
         self.postViewPanel = pvp.PostViewPanel(postData, userData)
         self.postViewPanel.show()
+        self.close()
+
+    def openCreatePostPanel(self):
+        import view.createPostPanel as cpp
+        
+        self.createPostPanel = cpp.CreatePostPanel(self.userData)
+        self.createPostPanel.show()
+        self.close()
+
+    def openAdminPanel(self):
+        import view.adminPanel as ap
+
+        self.adminPanel = ap.AdminPanel(self.userData)
+        self.adminPanel.show()
         self.close()
 
     def logout(self):

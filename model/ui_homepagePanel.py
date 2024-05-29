@@ -17,7 +17,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QAbstractScrollArea, QApplication, QFrame, QHBoxLayout,
     QLabel, QLineEdit, QPushButton, QScrollArea,
-    QSizePolicy, QVBoxLayout, QWidget)
+    QSizePolicy, QSpacerItem, QVBoxLayout, QWidget)
 
 class Ui_homepagePanel(object):
     def setupUi(self, homepagePanel):
@@ -135,13 +135,13 @@ class Ui_homepagePanel(object):
 
         self.horizontalLayout.addWidget(self.refreshButton)
 
-        self.adminPanel = QPushButton(self.horizontalLayoutWidget)
-        self.adminPanel.setObjectName(u"adminPanel")
-        sizePolicy4.setHeightForWidth(self.adminPanel.sizePolicy().hasHeightForWidth())
-        self.adminPanel.setSizePolicy(sizePolicy4)
-        self.adminPanel.setMinimumSize(QSize(0, 40))
+        self.adminPanelBtn = QPushButton(self.horizontalLayoutWidget)
+        self.adminPanelBtn.setObjectName(u"adminPanelBtn")
+        sizePolicy4.setHeightForWidth(self.adminPanelBtn.sizePolicy().hasHeightForWidth())
+        self.adminPanelBtn.setSizePolicy(sizePolicy4)
+        self.adminPanelBtn.setMinimumSize(QSize(0, 40))
 
-        self.horizontalLayout.addWidget(self.adminPanel)
+        self.horizontalLayout.addWidget(self.adminPanelBtn)
 
         self.profileButton = QPushButton(self.horizontalLayoutWidget)
         self.profileButton.setObjectName(u"profileButton")
@@ -167,7 +167,7 @@ class Ui_homepagePanel(object):
         self.welcomeLabel.setFont(font2)
         self.frame = QFrame(homepagePanel)
         self.frame.setObjectName(u"frame")
-        self.frame.setGeometry(QRect(290, 50, 391, 71))
+        self.frame.setGeometry(QRect(10, 50, 1001, 71))
         self.frame.setFrameShape(QFrame.StyledPanel)
         self.frame.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_3 = QHBoxLayout(self.frame)
@@ -206,6 +206,18 @@ class Ui_homepagePanel(object):
 
         self.horizontalLayout_3.addWidget(self.searchBtn)
 
+        self.horizontalSpacer = QSpacerItem(450, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_3.addItem(self.horizontalSpacer)
+
+        self.createPostBtn = QPushButton(self.frame)
+        self.createPostBtn.setObjectName(u"createPostBtn")
+        sizePolicy5.setHeightForWidth(self.createPostBtn.sizePolicy().hasHeightForWidth())
+        self.createPostBtn.setSizePolicy(sizePolicy5)
+        self.createPostBtn.setMinimumSize(QSize(150, 40))
+
+        self.horizontalLayout_3.addWidget(self.createPostBtn)
+
 
         self.retranslateUi(homepagePanel)
 
@@ -220,11 +232,12 @@ class Ui_homepagePanel(object):
         self.publishDateLabel.setText(QCoreApplication.translate("homepagePanel", u"Payla\u015f\u0131m Tarihi:", None))
         self.readMoreBtn.setText(QCoreApplication.translate("homepagePanel", u"Devam\u0131n\u0131 oku", None))
         self.refreshButton.setText(QCoreApplication.translate("homepagePanel", u"Yenile", None))
-        self.adminPanel.setText(QCoreApplication.translate("homepagePanel", u"Y\u00f6netici Paneli", None))
+        self.adminPanelBtn.setText(QCoreApplication.translate("homepagePanel", u"Y\u00f6netici Paneli", None))
         self.profileButton.setText(QCoreApplication.translate("homepagePanel", u"Profil", None))
         self.logoutButton.setText(QCoreApplication.translate("homepagePanel", u"\u00c7\u0131k\u0131\u015f Yap", None))
         self.welcomeLabel.setText(QCoreApplication.translate("homepagePanel", u"Ho\u015fgeldiniz ? Bey/Han\u0131m", None))
         self.label_2.setText(QCoreApplication.translate("homepagePanel", u"\u0130\u00e7erik Ara:", None))
         self.searchBtn.setText(QCoreApplication.translate("homepagePanel", u"Ara", None))
+        self.createPostBtn.setText(QCoreApplication.translate("homepagePanel", u"G\u00f6nderi Olu\u015ftur", None))
     # retranslateUi
 

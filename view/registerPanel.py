@@ -1,5 +1,6 @@
 from PySide6.QtWidgets import *
 from model.ui_registerPanel import *
+from data.account import *
 import helper.dbhelper as dbhelper
 
 
@@ -52,6 +53,21 @@ class RegisterPanel(QMainWindow):
             )
             con.commit()
 
+            sql2 = """SELECT * FROM accounts WHERE account_USERNAME=? AND account_PASSWORD=?"""
+            s = cur.execute(
+                sql2, (self.ui.usernameInput.text(), self.ui.passwordInput.text())
+            ).fetchone()
+
+            self.userData = Account(
+                s[0],
+                self.ui.usernameInput.text(),
+                self.ui.passwordInput.text(),
+                self.ui.mailInput.text(),
+                self.ui.genderComboBox.currentIndex() + 1,
+                dateStr,
+                DEFAULT_ROLE_ID,
+            )
+
             QMessageBox.information(
                 self,
                 "Bilgi!",
@@ -72,7 +88,7 @@ class RegisterPanel(QMainWindow):
     def openHomepage(self):
         import view.homepagePanel as hp
 
-        self.homepagePanel = hp.HomepagePanel()
+        self.homepagePanel = hp.HomepagePanel(self.userData)
         self.homepagePanel.show()
         self.close()
 
