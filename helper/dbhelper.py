@@ -167,7 +167,7 @@ def getCommentsByPostId(id):
         cur = con.cursor()
         sql = """SELECT * FROM comments 
         WHERE comment_POST_ID=?
-        ORDER BY comment_DATE DESC"""
+        ORDER BY comment_ID DESC"""
 
         l = cur.execute(sql, (id,)).fetchall()
 

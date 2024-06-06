@@ -43,7 +43,7 @@ class HomepagePanel(QMainWindow):
             if search != "":
                 sql += f"""\nWHERE post_HEADER LIKE '%{search}%' OR post_CONTENT LIKE '%{search}%'"""
 
-            sql += """\nORDER BY post_DATE DESC"""
+            sql += """\nORDER BY post_ID DESC"""
 
             l = cur.execute(sql, ()).fetchall()
 

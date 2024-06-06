@@ -10,5 +10,5 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = LoginPanel()
     window.show()
-    
+
     sys.exit(app.exec())

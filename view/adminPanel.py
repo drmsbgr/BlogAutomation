@@ -335,7 +335,7 @@ class AdminPanel(QMainWindow):
             sql = """SELECT comment_ID,account_USERNAME,comment_CONTENT,comment_DATE,post_HEADER FROM comments
             INNER JOIN accounts ON comments.comment_OWNER_ID=accounts.account_ID
             INNER JOIN posts ON comments.comment_POST_ID=posts.post_ID
-            ORDER BY comment_DATE DESC"""
+            ORDER BY comment_ID DESC"""
 
             l = cur.execute(sql, ()).fetchall()
 
@@ -384,7 +384,7 @@ class AdminPanel(QMainWindow):
 
             sql = """SELECT post_ID,post_HEADER,post_CONTENT,post_DATE,account_USERNAME FROM posts
             INNER JOIN accounts ON posts.post_OWNER_ID=accounts.account_ID
-            ORDER BY post_DATE DESC"""
+            ORDER BY post_ID DESC"""
 
             l = cur.execute(sql, ()).fetchall()
 
