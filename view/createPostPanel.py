@@ -66,7 +66,7 @@ class CreatePostPanel(QMainWindow):
             )
             con.commit()
 
-            sql2 = """SELECT * FROM posts ORDER BY post_DATE DESC"""
+            sql2 = """SELECT * FROM posts ORDER BY post_ID DESC"""
             l = cur.execute(sql2, ()).fetchone()
 
             sql3 = """INSERT INTO postCategories VALUES(NULL,?,?)"""
